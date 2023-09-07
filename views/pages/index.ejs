@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs') %>
+<body>
+    <%- include('../partials/nav.ejs') %>
+    
+    <div class="message content">
+        <% if(messages.length>0){ %>
+            <% messages.forEach(message=>{ %>
+                <h3 class="title"><%= message.title  %></h3>
+                <p class="body"><%= message.body %></p>
+                <% }) %>
+                <% }else{ %>
+                    <p>There are no messages at the moment!</p>
+                    <% } %>
+    </div>
+
+
+
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>

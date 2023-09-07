@@ -4,13 +4,16 @@
 
     <body>
         <%- include('../partials/nav.ejs')  %>
+        
         <div class="create-blog content">
-            <form >
+
+            <form action="/messages" method="POST" >
                 <label for="title" id="title" >Title</label>
                 <input type="text" name="title" id="title">
                 <textarea id="body" name="body" required></textarea>
                 <button>Submit</button>
             </form>
+
         </div>
         <%- include('../partials/footer.ejs') %>     
     </body>

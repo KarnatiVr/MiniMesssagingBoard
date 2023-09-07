@@ -7,12 +7,19 @@
     <div class="message content">
         <% if(messages.length>0){ %>
             <% messages.forEach(message=>{ %>
-                <h3 class="title"><%= message.title  %></h3>
-                <p class="body"><%= message.body %></p>
-                <% }) %>
-                <% }else{ %>
-                    <p>There are no messages at the moment!</p>
-                    <% } %>
+
+               <a class="single" href="/messages/<%= message._id %>">
+                    <h3 class="title">
+                        <%= message.title %>
+                    </h3>
+                    <p class="body">
+                        <%= message.body %>
+                     </p>
+                </a>
+            <% }) %>
+            <% }else{ %>
+                     <p>There are no messages at the moment!</p>
+                <% } %>
     </div>
 
 

@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-
+const Messages = require ('./models/messages');
 //Express app
 
 const app = express();
@@ -31,18 +31,22 @@ app.use(morgan('dev'));
 
 //Controllers
 
+
 app.get('/',(req,res)=>{
-    const messages=[
-        {title: 'Batman',body :'I am Batman' },
-        {title : 'One Piece', body : 'Kaizoku-o ni orewa naru!'},
-    ];
-    res.render('pages/index',{title:'Messages',messages});
+    res.redirect('/messages');
 })
 
 
 app.get('/about',(req, res)=>{
   res.render('pages/about',{title:'About'});
 });
+
+app.get('/messages',(req,res)=>{
+    Messages.find()
+    .then((result)=>{
+        res.render('pages/index',{title:'All Blogs',messages : result});
+    }).catch(err=>{console.log(err)});
+})
 
 app.get('/create',(req,res)=>{
     res.render('pages/create',{title:'Create'});
